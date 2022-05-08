@@ -1,5 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/homepage.dart';
+import 'package:flutter_application_1/pages/loginpage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,51 +12,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: const LoginPage(),
       theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
-      ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Center(child: Text("Application")),
-      ),
-      body: Container(),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: const [
-            UserAccountsDrawerHeader(
-              accountName: Text("Mujahid789"),
-              accountEmail: Text("imujahid789@gmail.com"),
-              currentAccountPicture: CircleAvatar(),
-            ),
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text("Account"),
-              subtitle: Text("Personal"),
-              trailing: Icon(Icons.edit),
-            ),
-            ListTile(
-              leading: Icon(Icons.email),
-              title: Text("Email"),
-              subtitle: Text("imujahid789@gmail.com"),
-              trailing: Icon(Icons.send),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.edit),
-      ),
+          appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.lightBlue,
+        foregroundColor: Colors.white,
+      )),
+      routes: {
+        "/login": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+      },
     );
   }
 }
